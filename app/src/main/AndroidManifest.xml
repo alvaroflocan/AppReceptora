@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     >
-
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <application
         android:allowBackup="true"
@@ -22,11 +22,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
+        <receiver android:name=".NotificationReceiver" android:exported="true" android:enabled="true">
+            <intent-filter>
+                <action android:name="com.example.appreceptora.MENSAJE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
